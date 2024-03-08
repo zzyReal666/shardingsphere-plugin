@@ -31,5 +31,6 @@
         <module>like</module>
         <module>rc4</module>
         <module>sm</module>
+        <module>sinocipher</module>
     </modules>
 </project>
