@@ -54,7 +54,7 @@ public final class SM3EncryptAlgorithm implements EncryptAlgorithm {
     @Override
     public void init(final Properties props) {
         sm3Salt = createSm3Salt(props);
-        metaData = new EncryptAlgorithmMetaData(false, false, false);
+        metaData = new EncryptAlgorithmMetaData(false, true, false);
     }
     
     private byte[] createSm3Salt(final Properties props) {
