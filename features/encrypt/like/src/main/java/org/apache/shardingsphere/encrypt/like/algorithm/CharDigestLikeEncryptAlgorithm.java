@@ -112,7 +112,9 @@ public final class CharDigestLikeEncryptAlgorithm implements EncryptAlgorithm {
     
     private Map<Character, Integer> createCharIndexes(final Properties props) {
         String dictContent = props.containsKey(DICT_KEY) && !Strings.isNullOrEmpty(props.getProperty(DICT_KEY)) ? props.getProperty(DICT_KEY) : initDefaultDict();
-        return IntStream.range(0, dictContent.length()).boxed().collect(Collectors.toMap(dictContent::charAt, index -> index, (oldValue, currentValue) -> oldValue));
+        return IntStream.range(0, dictContent.length())
+                .boxed()
+                .collect(Collectors.toMap(dictContent::charAt, index -> index, (oldValue, currentValue) -> oldValue));
     }
     
     @SneakyThrows(IOException.class)
@@ -164,7 +166,7 @@ public final class CharDigestLikeEncryptAlgorithm implements EncryptAlgorithm {
         if (charIndexes.containsKey(originalChar)) {
             return (char) (((charIndexes.get(originalChar) + delta) & mask) + start);
         }
-        return (char) (((originalChar + delta) & mask) + start);
+        return (char) (((originalChar + delta) & mask));
     }
     
     @Override

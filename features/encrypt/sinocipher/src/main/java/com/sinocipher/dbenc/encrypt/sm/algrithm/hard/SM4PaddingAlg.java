@@ -4,6 +4,7 @@ import com.zayk.sdf.api.provider.ZaykJceGlobal;
 import com.zayk.sdf.api.sdk.ZaykSDF;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.shardingsphere.encrypt.exception.algorithm.EncryptAlgorithmInitializationException;
@@ -24,17 +25,16 @@ import java.util.Set;
  * @since 2024/3/18 13:55
  */
 @EqualsAndHashCode
+@ToString
 public final class SM4PaddingAlg implements EncryptAlgorithm {
 
 
     static {
-        //路径 当前项目路径
-        String path = System.getProperty("user.dir");
-        System.out.println("当前项目路径：" + path);
-        sdf = ZaykSDF.getInstance(path + "/config/zayk4j.ini");
+        sdf = ZaykSDF.getInstance("/Users/zhangzhongyuan/IdeaProjects/shardingsphere-plugin/features/encrypt/sinocipher/src/main/resources/zayk4j.ini");
     }
 
-    private static ZaykSDF sdf;
+    @Getter
+    private static final ZaykSDF sdf;
 
     private static final String KEY_INDEX = "key-index";
 

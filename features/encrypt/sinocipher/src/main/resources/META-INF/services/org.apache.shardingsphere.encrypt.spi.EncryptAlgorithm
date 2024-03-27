@@ -17,3 +17,4 @@
 
 com.sinocipher.dbenc.encrypt.sm.algrithm.SM3EncryptAlgorithm
 com.sinocipher.dbenc.encrypt.sm.algrithm.SM4EncryptAlgorithm
+com.sinocipher.dbenc.encrypt.sm.algrithm.hard.SM4PaddingAlg
